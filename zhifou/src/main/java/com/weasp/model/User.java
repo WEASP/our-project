@@ -35,7 +35,7 @@ public class User {
         return salt;
     }
     public void setSalt(String salt){
-        this.name = salt;
+        this.salt = salt;
     }
     public String getHeadUrl(){
         return headUrl;

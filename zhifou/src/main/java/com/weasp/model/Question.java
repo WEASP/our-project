@@ -46,7 +46,7 @@ public class Question{
     public int getCommentCount(){
         return commentCount;
     }
-    public void setcommentCount(int commentCount){
+    public void setCommentCount(int commentCount){
         this.commentCount = commentCount;
     }
 }
