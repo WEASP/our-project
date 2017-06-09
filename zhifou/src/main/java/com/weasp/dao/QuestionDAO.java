@@ -1,8 +1,10 @@
 package com.weasp.dao;
 
 import com.weasp.model.Question;
-import org.apache.ibatis.annotations.*;
-
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
@@ -13,13 +15,17 @@ import java.util.List;
 public interface QuestionDAO {
 
     String TABLE_NAME = " question ";
-    String INSERT_FIELDS = " title,content,created_date,user_id,comment_count ";
+    String INSERT_FIELDS = " title,content,user_id,created_date,comment_count ";
     String SELECT_FIELDS = " id," + INSERT_FIELDS;
 
     @Insert({"insert into ",TABLE_NAME," (",INSERT_FIELDS,
             ") values (#{title},#{content},#{createdDate},#{userId},#{commentCount})"})
     int addQuestion(Question question);
 
-    List<Question> selectLatesQuestions(@Param("userId") int userId, @Param("offset") int offset,
-                                        @Param("limit") int limit);
+    @Select({"select ", SELECT_FIELDS ," from ",TABLE_NAME," where id =#{userId}"})
+    Question selectQuestion(int userId);
+
+    @Select({"select ", SELECT_FIELDS ," from ",TABLE_NAME," ORDER BY id DESC LIMIT #{offset},#{limit}"})
+    List<Question> selectLatestQuestions(@Param("offset")int offset , @Param("limit")int limit);
+
 }
