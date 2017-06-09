@@ -9,9 +9,9 @@ public class Question{
     private int id;
     private String title;
     private String content;
-    private Date createDate;
+    private Date createdDate;
     private int userId;
-    private String commentCount;
+    private int commentCount;
 
     public int getId(){
         return id;
@@ -32,10 +32,10 @@ public class Question{
         this.content = content;
     }
     public Date getCreateDate(){
-        return createDate;
+        return createdDate;
     }
-    public void setcreateDate(Date createDate){
-        this.createDate = createDate;
+    public void setcreateDate(Date createdDate){
+        this.createdDate = createdDate;
     }
     public int getUserId(){
         return userId;
@@ -43,10 +43,10 @@ public class Question{
     public void setUserId(int userId){
         this.userId = userId;
     }
-    public String getCommentCount(){
+    public int getCommentCount(){
         return commentCount;
     }
-    public void setcommentCount(String commentCount){
+    public void setcommentCount(int commentCount){
         this.commentCount = commentCount;
     }
 }
