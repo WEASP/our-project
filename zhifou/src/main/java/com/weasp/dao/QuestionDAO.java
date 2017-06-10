@@ -19,7 +19,7 @@ public interface QuestionDAO {
     String SELECT_FIELDS = " id," + INSERT_FIELDS;
 
     @Insert({"insert into ",TABLE_NAME," (",INSERT_FIELDS,
-            ") values (#{title},#{content},#{createdDate},#{userId},#{commentCount})"})
+            ") values (#{title},#{content},#{userId},#{createdDate},#{commentCount})"})
     int addQuestion(Question question);
 
     @Select({"select ", SELECT_FIELDS ," from ",TABLE_NAME," where id =#{userId}"})
