@@ -22,7 +22,7 @@
 
 #### 1基于Spring+Mybitas的轻量级Web应用框架
 
-![Web分层架构图](C:\Users\72703\Desktop\web课程相关\Web应用架构设计\Web分层架构图.png)
+![Web分层架构图](Web分层架构图.png)
 
 #### 1.1应用层
 
