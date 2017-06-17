@@ -34,5 +34,6 @@ public interface MessageDAO {
                                       @Param("limit") int limit);
 
     @Select({"select count(id) from ", TABLE_NAME, " where has_read=0 and to_id=#{userId} and conversation_id=#{conversationId}"})
-    int getConversationUnreadCount(@Param("userId") int userId, @Param("conversationId") String conversationId);
+    int getConversationUnreadCount(@Param("userId") int userId,
+                                   @Param("conversationId") String conversationId);
 }
