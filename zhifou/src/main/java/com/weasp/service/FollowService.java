@@ -4,7 +4,7 @@ import com.weasp.util.JedisAdapter;
 import com.weasp.util.RedisKeyUtil;
 import org.apache.ibatis.transaction.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.spri ngframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Date;

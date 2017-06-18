@@ -1,0 +1,22 @@
+<mapper namespace="com.weasp.dao.FeedDAO">
+    <sql id="table">feed</sql>
+    <sql id="selectFields">id,created_date,user_id,data,type</sql>
+    <select id="selectUserFeeds" resultType="com.weasp.model.Feed">
+        SELECT
+        <include refid="selectFields"/>
+        FROM
+        <include refid="table"/>
+
+        WHERE id &lt; #{maxId}
+
+        <if text="userIds.size() !=0">
+            AND user_id in
+            <foreach collection="userIds" index="index" item="item"
+                     open="(" separater="," close=")">
+                #{item}
+            </foreach>
+        </if>
+        ORDER BY id DESC
+        LIMIT=#{count}
+    </select>
+</mapper>
