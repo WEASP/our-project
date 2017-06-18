@@ -4,12 +4,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.security.MessageDigest;
-
 /**
  * Created by 72703 on 2017/6/10.
  */
 public class ZhifouUtil {
     private static final Logger logger = LoggerFactory.getLogger(ZhifouUtil.class);
+    public static int ANONYMOUS_USERID = 3;
+    public static int SYSTEM_USERID = 4;
 
     public static String MD5(String key){
         char hexDigits[] = {
