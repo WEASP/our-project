@@ -7,7 +7,7 @@
         FROM
         <include refid="table"/>
 
-        WHERE id &lt; #{maxId}
+        WHERE id &lt;  #{maxId}
 
         <if text="userIds.size() !=0">
             AND user_id in

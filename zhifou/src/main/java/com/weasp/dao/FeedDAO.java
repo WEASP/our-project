@@ -1,7 +1,6 @@
 package com.weasp.dao;
 
 import com.weasp.model.Feed;
-import com.weasp.model.LoginTicket;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -20,7 +19,7 @@ public interface FeedDAO {
     int addFeed(Feed feed);
 
     @Select({"select ",SELECT_FIELDS," from ",TABLE_NAME," where ticket=#{ticket}"})
-    LoginTicket selectByTicket(String ticket);
+   Feed getFeedById(int id);
 
     List<Feed> selectUserFeeds(@Param( "maxId" ) int maxId,
                                @Param( "userIds" )List<Integer> userIds,
