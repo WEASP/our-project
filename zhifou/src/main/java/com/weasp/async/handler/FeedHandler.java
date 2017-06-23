@@ -4,18 +4,23 @@ import com.alibaba.fastjson.JSONObject;
 import com.weasp.async.EventHandler;
 import com.weasp.async.EventModel;
 import com.weasp.async.EventType;
-import com.weasp.model.*;
-import com.weasp.service.*;
+import com.weasp.model.EntityType;
+import com.weasp.model.Feed;
+import com.weasp.model.Question;
+import com.weasp.model.User;
+import com.weasp.service.FeedService;
+import com.weasp.service.FollowService;
+import com.weasp.service.QuestionService;
+import com.weasp.service.UserService;
 import com.weasp.util.JedisAdapter;
 import com.weasp.util.RedisKeyUtil;
-import org.apache.commons.lang.math.RandomUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.*;
 
 /**
- * Created by nowcoder on 2016/7/30.
+ * Created by weasp on 2016/7/30.
  */
 @Component
 public class FeedHandler implements EventHandler {
@@ -93,5 +98,4 @@ public class FeedHandler implements EventHandler {
     public List<EventType> getSupportEventTypes() {
         return Arrays.asList(new EventType[]{EventType.COMMENT, EventType.FOLLOW});
     }
-}
 }
