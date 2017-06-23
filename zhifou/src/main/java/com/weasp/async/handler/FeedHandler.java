@@ -94,3 +94,4 @@ public class FeedHandler implements EventHandler {
         return Arrays.asList(new EventType[]{EventType.COMMENT, EventType.FOLLOW});
     }
 }
+}
