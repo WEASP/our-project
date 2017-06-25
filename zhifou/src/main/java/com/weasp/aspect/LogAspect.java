@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 import java.util.Date;
 
 /**
- * Created by JackHui on 2017/6/15.
+ * Created by weasp on 2017/6/15.
  */
 @Aspect
 @Component
