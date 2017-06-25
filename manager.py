@@ -8,8 +8,11 @@ import random
 
 manager = Manager(app)
 
+
 def get_image_url():
     return 'http://images.nowcoder.com/head/' + str(random.randint(0, 1000)) + 't.png'
+
+
 @manager.command
 def init_database():
     db.drop_all()

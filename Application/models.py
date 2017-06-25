@@ -4,7 +4,9 @@ from Application import db,login_manager
 from datetime import datetime
 import random
 
+
 class Comment(db.Model):
+    __table_args__ = {'mysql_collate': 'utf8_general_ci'}
     id=db.Column(db.Integer,primary_key=True,autoincrement=True)
     content=db.Column(db.String(1024))
     image_id=db.Column(db.Integer, db.ForeignKey('image.id'))
@@ -14,11 +16,12 @@ class Comment(db.Model):
 
     def __init__(self, content, image_id, user_id):
         self.content=content
-        self.image_id=user_id;
-        self.image_id=image_id;
+        #self.image_id=user_id    This error will be remember all the time in my life
+        self.user_id=user_id
+        self.image_id=image_id
+
     def __repr__(self):
         return '<Comment %d %s>' %(self.id,self.content)
-
 
 class Image(db.Model):
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
@@ -37,12 +40,12 @@ class Image(db.Model):
 
 
 class User(db.Model):
+    __table_args__ = {'mysql_collate': 'utf8_general_ci'}
     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     username = db.Column(db.String(80), unique=True)
     password = db.Column(db.String(32))
     salt = db.Column(db.String(32))
     head_url = db.Column(db.String(256))
-    #images = db.relationship('Image', backref='user', lazy='dynamic')
     images = db.relationship('Image',backref='user',lazy='dynamic')
 
     def __init__(self, username, password,salt=''):
