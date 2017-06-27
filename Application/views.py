@@ -10,9 +10,9 @@ from flask_login import login_user,current_user,login_required,logout_user
 
 @app.route('/')
 def index():
-    # images=Image.query.order_by(db.desc(Image.id)).limit(10).all()
-    image=Image.query.order_by('id desc').limit(10).all()
-    return render_template('index.html',images=image)
+    images=Image.query.order_by(db.desc(Image.id)).limit(10).all()
+    # image=Image.query.order_by('id desc').limit(10).all()
+    return render_template('index.html',images=images)
 
 
 @app.route('/index/images/<int:page>/<int:per_page>/')

@@ -4,13 +4,21 @@ from Application import app, db
 from flask_script import Manager
 from sqlalchemy import or_,and_
 from Application.models import User, Image,Comment
-import random
+import random,unittest
 
 manager = Manager(app)
 
 
 def get_image_url():
     return 'http://images.nowcoder.com/head/' + str(random.randint(0, 1000)) + 't.png'
+
+
+@manager.command
+def run_test():
+    db.drop_all()
+    db.create_all()
+    tests = unittest.TestLoader().discover('./')
+    unittest.TextTestRunner().run(tests)
 
 
 @manager.command
