@@ -31,10 +31,10 @@ public class Question{
     public void setContent(String content){
         this.content = content;
     }
-    public Date getCreateDate(){
+    public Date getCreatedDate() {
         return createdDate;
     }
-    public void setcreateDate(Date createdDate){
+    public void setCreatedDate(Date createdDate) {
         this.createdDate = createdDate;
     }
     public int getUserId(){
